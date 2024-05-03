@@ -28,6 +28,12 @@ class ModelTest {
         assertEquals(200, coche.getVelocidad());
     }
 
+    @Test
+    void testGetCoche() {
+        Coche coche = model.getCoche();
+        assertNotNull(coche);
+        assertEquals(matricula, coche.getMatricula());
+    }
 
     @Test
     void testCambiarVelocidad() {
