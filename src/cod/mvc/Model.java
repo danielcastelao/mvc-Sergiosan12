@@ -2,11 +2,7 @@ package cod.mvc;
 
 import java.util.ArrayList;
 public class Model {
-    private  static ArrayList<Coche> parking;
-
-    public Model(){
-        parking = new ArrayList<Coche>();
-    }
+    private static ArrayList<Coche> parking = new ArrayList<>();
 
     public static Coche crearCoche(String matricula, String modelo, Integer velocidad){
         Coche coche = new Coche(matricula, modelo, velocidad);
@@ -35,6 +31,5 @@ public class Model {
             }
         }
         return null;
-
     }
 }
