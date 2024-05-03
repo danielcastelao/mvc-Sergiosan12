@@ -37,5 +37,9 @@ class ModelTest {
         assertEquals(nuevaVelocidad, coche.getVelocidad());
     }
 
-
+    @Test
+    void testGetVelocidad() {
+        Integer velocidadObtenida = model.getVelocidad(matricula);
+        assertEquals(velocidad, velocidadObtenida);
+    }
 }
