@@ -29,4 +29,13 @@ class ModelTest {
     }
 
 
+    @Test
+    void testCambiarVelocidad() {
+        Integer nuevaVelocidad = 150;
+        model.cambiarVelocidad(matricula, nuevaVelocidad);
+        Coche coche = model.getCoche();
+        assertEquals(nuevaVelocidad, coche.getVelocidad());
+    }
+
+
 }
