@@ -23,15 +23,14 @@ class ModelTest {
 
     @Test
     void testGetCoche() {
-        Coche coche = Model.getCoche();
+        Coche coche = Model.getCoche("1234ABC");
         assertNotNull(coche);
     }
 
     @Test
     void testCambiarVelocidad() {
-        Model.cambiarVelocidad("1234ABC", 150);
-        Coche coche = Model.getCoche();
-        assertEquals(150, coche.getVelocidad());
+        Integer nuevaVelocidad = Model.cambiarVelocidad("1234ABC", 150);
+        assertEquals(150, nuevaVelocidad);
     }
 
     @Test
