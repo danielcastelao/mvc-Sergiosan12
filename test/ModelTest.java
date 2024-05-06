@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ModelTest {
-    private String matricula;
-    private String modelo;
-    private Integer velocidad;
+
 
     @BeforeEach
     void setUp() {
@@ -19,12 +17,16 @@ class ModelTest {
     void testCrearCoche() {
         Coche coche = Model.crearCoche("5678DEF", "ModeloTest2", 200);
         assertNotNull(coche);
+        assertEquals("5678DEF", coche.getMatricula());
+        assertEquals("ModeloTest2", coche.getModelo());
+        assertEquals(200, coche.getVelocidad());
     }
 
     @Test
     void testGetCoche() {
         Coche coche = Model.getCoche("1234ABC");
         assertNotNull(coche);
+        assertEquals("1234ABC", coche.getMatricula());
     }
 
     @Test
