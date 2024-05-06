@@ -47,6 +47,11 @@ public class Model {
         return null;
     }
 
+    /**
+     *
+     * @param matricula del coche a buscar
+     * @return la velocidad del coche si lo encuentra, null si no
+     */
     public static Integer getVelocidad(String matricula){
         for (Coche coche : parking) {
             if (coche.getMatricula().equals(matricula)) {
