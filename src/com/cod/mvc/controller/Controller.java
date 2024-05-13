@@ -1,7 +1,7 @@
-package cod.mvc.controller;
+package com.cod.mvc.controller;
 
-import cod.mvc.model.Coche;
-import cod.mvc.model.Model;
+import com.cod.mvc.model.Coche;
+import com.cod.mvc.model.Model;
 
 import java.util.Observer;
 

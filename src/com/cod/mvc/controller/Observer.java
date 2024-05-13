@@ -1,6 +1,6 @@
-package cod.mvc.controller;
+package com.cod.mvc.controller;
 
-import cod.mvc.model.Coche;
+import com.cod.mvc.model.Coche;
 
 public interface Observer {
     //metodo que se ejecuta cuando el objeto observado cambia

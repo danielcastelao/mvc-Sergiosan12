@@ -1,5 +1,5 @@
-import cod.mvc.model.Coche;
-import cod.mvc.model.Model;
+import com.cod.mvc.model.Coche;
+import com.cod.mvc.model.Model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

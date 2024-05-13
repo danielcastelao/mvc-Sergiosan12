@@ -1,4 +1,4 @@
-import cod.mvc.view.View;
+import com.cod.mvc.view.View;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;

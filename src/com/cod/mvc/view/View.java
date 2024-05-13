@@ -1,4 +1,4 @@
-package cod.mvc.view;
+package com.cod.mvc.view;
 
 public class View {
     public static boolean muestraVelocidad(String matricula, Integer velocidad){
