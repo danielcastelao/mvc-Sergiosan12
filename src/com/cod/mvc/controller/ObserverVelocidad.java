@@ -5,8 +5,9 @@ import com.cod.mvc.view.View;
 
 public class ObserverVelocidad implements Observer {
     public void update(Coche arg){
-        System.out.println("Se ha cambiado la velociad del coche con matricula: " + arg.getMatricula() + " a " + arg.getVelocidad() + " km/h");
-        View.muestraVelocidad(arg.getMatricula(), arg.getVelocidad());
+        System.out.println("Se ha cambiado la velocidad: " + String.valueOf(arg.velocidad));
+        // le comunicamos a la vista que muestre la velocidad
+        View.muestraVelocidad(arg.matricula, arg.velocidad);
     }
 
 }

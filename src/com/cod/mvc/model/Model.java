@@ -67,10 +67,8 @@ public class Model implements Observable {
                 coche.setVelocidad(velocidad);
                 return velocidad;
             }
-
+            notifyObservers(getCoche(matricula));
         }
-        notifyObservers(getCoche(matricula));
-
         return null;
 
     }
