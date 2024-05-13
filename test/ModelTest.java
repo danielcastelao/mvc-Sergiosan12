@@ -31,7 +31,9 @@ class ModelTest {
 
     @Test
     void testCambiarVelocidad() {
-        Integer nuevaVelocidad = Model.cambiarVelocidad("1234ABC", 150);
+        Model miModelo = new Model();
+        miModelo.crearCoche("1234ABC", "ModeloTest1", 100);
+        Integer nuevaVelocidad = miModelo.cambiarVelocidad("1234ABC", 150);
         assertEquals(150, nuevaVelocidad);
     }
 

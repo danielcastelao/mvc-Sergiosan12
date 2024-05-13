@@ -61,14 +61,18 @@ public class Model implements Observable {
      * @param velocidad nueva
      * @return la velocidad nueva si se ha cambiado, null si no se ha encontrado el coche
      */
-    public static Integer cambiarVelocidad(String matricula, Integer velocidad){
+    public Integer cambiarVelocidad(String matricula, Integer velocidad){
         for (Coche coche : parking) {
             if (coche.getMatricula().equals(matricula)) {
                 coche.setVelocidad(velocidad);
                 return velocidad;
             }
+
         }
+        notifyObservers(getCoche(matricula));
+
         return null;
+
     }
 
     /**
