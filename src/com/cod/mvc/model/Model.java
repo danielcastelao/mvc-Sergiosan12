@@ -1,20 +1,19 @@
 package com.cod.mvc.model;
 
+import com.cod.mvc.controller.Observer;
 
-import java.util.Observer;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Model implements Observable {
     static ArrayList<Coche> parking = new ArrayList<>();
 
-    private final List<Observer> observers = new ArrayList<>();
-
+    private static final ArrayList<Observer> observers = new ArrayList<Observer>();
 
 
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
+
     }
 
     @Override
@@ -25,6 +24,7 @@ public class Model implements Observable {
     @Override
     public void notifyObservers(Coche coche) {
         for (Observer observer : observers) {
+            observer.update(coche);
         }
     }
 

@@ -12,7 +12,7 @@ public class Controller {
 
         // instanciamos al observador
         ObserverVelocidad observoVelocidad = new ObserverVelocidad();
-        miModelo.addObserver((Observer) observoVelocidad);
+        miModelo.addObserver(observoVelocidad);
 
         // Crear tres coches
 

@@ -1,6 +1,7 @@
 package com.cod.mvc.model;
 
-import java.util.Observer;
+import com.cod.mvc.controller.Observer;
+import com.cod.mvc.model.Coche;
 
 public interface Observable {
     //añade un observador
