@@ -1,4 +1,6 @@
-package cod.mvc;
+package cod.mvc.model;
+
+import cod.mvc.model.Coche;
 
 import java.util.Observer;
 
