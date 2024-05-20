@@ -80,9 +80,6 @@ public class Model implements Observable {
         // lo notificamos a todos los observadores
         notifyObservers(getCoche(matricula));
 
-        // ya no retornamos la nueva velocidad
-        // porque vamos a utilizar el patron observer
-        // return getCoche(matricula).velocidad;
     }
 
     /**
