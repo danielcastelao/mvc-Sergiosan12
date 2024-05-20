@@ -53,7 +53,7 @@ public class Model implements Observable {
     /**
      * Busca coche segun matricula
      * @param matricula a buscar
-     * @return chche o null si no existe
+     * @return coche o null si no existe
      */
     public Coche getCoche(String matricula){
         Coche aux = null;
@@ -82,7 +82,7 @@ public class Model implements Observable {
 
         // ya no retornamos la nueva velocidad
         // porque vamos a utilizar el patron observer
-        // return getCoche(matricula).velocidad;
+
     }
 
     /**
