@@ -69,7 +69,6 @@ public class Model implements Observable {
     /**
      * Método que cambia la velocidad, por lo tanto
      * tendrá que avisar al controlador que ha cambiado
-     *
      * @param matricula identificador del coche
      * @param v nueva velocidad
      */
