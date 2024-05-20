@@ -1,3 +1,4 @@
+// En ModelTest.java
 import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,40 +7,42 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ModelTest {
-
+    Model model;
 
     @BeforeEach
     void setUp() {
-        Model.crearCoche("1234ABC", "ModeloTest1", 100);
+        model = new Model();
     }
 
     @Test
     void testCrearCoche() {
-        Coche coche = Model.crearCoche("5678DEF", "ModeloTest2", 200);
+        Coche coche = model.crearCoche("LaFerrari", "1234ABC");
         assertNotNull(coche);
-        assertEquals("5678DEF", coche.getMatricula());
-        assertEquals("ModeloTest2", coche.getModelo());
-        assertEquals(200, coche.getVelocidad());
+        assertEquals("1234ABC", coche.getMatricula());
+        assertEquals("LaFerrari", coche.getModelo());
+        assertEquals(0, coche.getVelocidad());
     }
 
     @Test
     void testGetCoche() {
-        Coche coche = Model.getCoche("1234ABC");
+        model.crearCoche("LaFerrari", "1234ABC");
+        Coche coche = model.getCoche("1234ABC");
         assertNotNull(coche);
         assertEquals("1234ABC", coche.getMatricula());
     }
 
     @Test
     void testCambiarVelocidad() {
-        Model miModelo = new Model();
-        miModelo.crearCoche("1234ABC", "ModeloTest1", 100);
-        Integer nuevaVelocidad = miModelo.cambiarVelocidad("1234ABC", 150);
-        assertEquals(150, nuevaVelocidad);
+        model.crearCoche("LaFerrari", "1234ABC");
+        model.cambiarVelocidad("1234ABC", 150);
+        Integer velocidad = model.getVelocidad("1234ABC");
+        assertEquals(150, velocidad);
     }
 
     @Test
     void testGetVelocidad() {
-        Integer velocidad = Model.getVelocidad("1234ABC");
-        assertEquals(100, velocidad);
+        model.crearCoche("LaFerrari", "1234ABC");
+        Integer velocidad = model.getVelocidad("1234ABC");
+        assertEquals(0, velocidad);
     }
 }
