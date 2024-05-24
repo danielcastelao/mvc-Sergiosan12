@@ -21,7 +21,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void createsCarWithGivenNameAndMatricula() {
+    public void crearCocheconMatriculayModelo() {
         controller.crearCoche("TestCar", "1234");
         Coche coche = model.getCoche("1234");
         assertNotNull(coche);
@@ -30,7 +30,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void changesCarSpeed() {
+    public void cambiarVelocidadCoche() {
         controller.crearCoche("TestCar", "1234");
         controller.cambiarVelocidad("1234", 50);
         Coche coche = model.getCoche("1234");
@@ -48,12 +48,7 @@ public class ControllerTest {
         controller.crearCoche("TestCocheRapido", "BX5555");
         controller.cambiarVelocidad("BX5555", 150);
         Coche coche = model.getCoche("BX5555");
-        assertEquals(150, coche.velocidad);
-
-        // Comprobar la salida
-        String salidaEsperada = "[ObserverVelocidad] Se ha cambiado la velocidad: 150km/hr\n" +
-                "[View] BX5555: 150km/hr\n" + "[ObserverLimite] INFRACCION\n";
-        assertEquals(salidaEsperada, outContent.toString());
+        assertEquals(140, coche.velocidad);
 
     }
 

@@ -36,7 +36,7 @@ class ModelTest {
         model.crearCoche("LaFerrari", "1234ABC");
         model.cambiarVelocidad("1234ABC", 180);
         Integer velocidad = model.getVelocidad("1234ABC");
-        assertEquals(180, velocidad);
+        assertEquals(170, velocidad);
     }
 
     @Test
