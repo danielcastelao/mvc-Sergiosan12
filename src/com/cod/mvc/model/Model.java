@@ -31,9 +31,9 @@ public class Model implements Observable {
      * @param coche
      */
     @Override
-    public void notifyObservers(Coche coche) {
+    public void notifyObservers(Coche coche,Model model) {
         for (Observer observer : observers) {
-            observer.update(coche);
+            observer.update(coche,model);
         }
     }
 
@@ -75,18 +75,11 @@ public class Model implements Observable {
      */
     public void cambiarVelocidad(String matricula, Integer v) {
         // busca el coche
-        Coche coche = getCoche(matricula);
-
-        // si la velocidad es mayor que 120, la reducimos en 10
-        if (v > 120) {
-            System.out.println("Velocidad cambiada: " + v);
-            v -= 10;
-        }
-
-        coche.velocidad = v;
+        getCoche(matricula).velocidad = v;
 
         // lo notificamos a todos los observadores
-        notifyObservers(coche);
+        notifyObservers(getCoche(matricula),this);
+
     }
 
     /**

@@ -27,7 +27,7 @@ public class App {
 
         // otro cambio de velocidad
         // sobrepasando la velocidad máxima
-        miController.cambiarVelocidad("JFK 9876", 190);
+        miController.cambiarVelocidad("JFK 9876", 140);
 
     }
 }

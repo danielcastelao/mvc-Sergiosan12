@@ -1,6 +1,7 @@
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
+import com.cod.mvc.model.Model;
 
 /**
  * Otro observador que se suscribe a los cambios de velocidad de un coche
@@ -13,11 +14,11 @@ public class ObserverLimite implements Observer {
      * @param coche Coche al que se le actualizó la velocidad
      */
     @Override
-    public void update(Coche coche) {
-        // verificamos veloidad máxima
-        if (coche.velocidad > LIMITE) {
-            // avisamos de una infracción
-            System.out.println("[ObserverLimite] INFRACCION");
+    public void update(Coche coche, Model model) {
+        if(coche.velocidad>LIMITE){
+            System.out.println("INFRACCION"+
+                    "\nSe ha reducido la velocidad");
+            model.cambiarVelocidad(coche.matricula, coche.velocidad-10);
 
         }
     }
