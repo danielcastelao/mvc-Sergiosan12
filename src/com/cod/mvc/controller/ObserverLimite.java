@@ -18,6 +18,7 @@ public class ObserverLimite implements Observer {
         if (coche.velocidad > LIMITE) {
             // avisamos de una infracción
             System.out.println("[ObserverLimite] INFRACCION");
+
         }
     }
 }

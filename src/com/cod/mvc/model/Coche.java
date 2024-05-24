@@ -1,10 +1,18 @@
 package com.cod.mvc.model;
 
+/**
+ * Clase Coche
+ */
 public class Coche {
     public String matricula;
     public String modelo;
     public Integer velocidad;
 
+    /**
+     *
+     * @param modelo del coche
+     * @param matricula cel coche
+     */
     public Coche(String modelo, String matricula) {
         this.modelo = modelo;
         this.matricula = matricula;

@@ -75,11 +75,18 @@ public class Model implements Observable {
      */
     public void cambiarVelocidad(String matricula, Integer v) {
         // busca el coche
-        getCoche(matricula).velocidad = v;
+        Coche coche = getCoche(matricula);
+
+        // si la velocidad es mayor que 120, la reducimos en 10
+        if (v > 120) {
+            System.out.println("Velocidad cambiada: " + v);
+            v -= 10;
+        }
+
+        coche.velocidad = v;
 
         // lo notificamos a todos los observadores
-        notifyObservers(getCoche(matricula));
-
+        notifyObservers(coche);
     }
 
     /**
