@@ -48,23 +48,9 @@ public class ControllerTest {
         controller.crearCoche("TestCocheRapido", "BX5555");
         controller.cambiarVelocidad("BX5555", 150);
         Coche coche = model.getCoche("BX5555");
-        assertEquals(140, coche.velocidad);
+        assertEquals(120, coche.getVelocidad()); // Va bajando la velocidad hasta los 120
 
     }
 
-    /*@Test
-    public void doesNotChangeSpeedOfNonExistentCar() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            controller.cambiarVelocidad("1234", 50);
-        });
-    }
 
-    @Test
-    public void doesNotCreateCarWithDuplicateMatricula() {
-        controller.crearCoche("TestCar", "1234");
-        assertThrows(IllegalArgumentException.class, () -> {
-            controller.crearCoche("AnotherCar", "1234");
-        });
-    }
-    */
 }
