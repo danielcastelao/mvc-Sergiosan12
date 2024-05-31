@@ -65,15 +65,21 @@ public class Model implements Observable {
      * @return coche o null si no existe
      */
     public Coche getCoche(String matricula){
+        // Convertir la matrícula ingresada por el usuario a minúsculas
+        String matriculaBusqueda = matricula.toLowerCase();
+
         Coche aux = null;
-        // recorre el array buscando por matricula
+        // Recorre el array buscando por matrícula
         for (Coche e: parking) {
-            if (e.matricula.equals(matricula)) {
+            // Convertir la matrícula almacenada en el sistema a minúsculas para la comparación
+            if (e.matricula.toLowerCase().equals(matriculaBusqueda)) {
                 aux = e;
+                break;
             }
         }
         return aux;
     }
+
 
     /**
      * Método que cambia la velocidad, por lo tanto
@@ -97,5 +103,14 @@ public class Model implements Observable {
      */
     public Integer getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
+    }
+
+    /**
+     * Busca un coche por matricula
+     * @param matricula del coche
+     * @return coche encontrado
+     */
+    public Coche buscarCoche(String matricula) {
+        return getCoche(matricula);
     }
 }

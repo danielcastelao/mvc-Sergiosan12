@@ -1,5 +1,6 @@
 package com.cod.mvc.controller;
 
+import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 
 public class Controller{
@@ -22,6 +23,7 @@ public class Controller{
         // instanciamos un segundo observador para el limite de velocidad
         ObserverLimite observoLimite = new ObserverLimite();
         miModel.addObserver(observoLimite);
+
     }
 
     /**
@@ -42,8 +44,12 @@ public class Controller{
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 
-
-
-
-
+    /**
+     * Busca un coche por su matrícula
+     * @param matricula del coche
+     * @return el coche encontrado o null si no existe
+     */
+    public Coche buscarCoche(String matricula){
+        return miModel.buscarCoche(matricula);
+    }
 }

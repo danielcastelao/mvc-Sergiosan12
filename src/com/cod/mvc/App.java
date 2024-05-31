@@ -1,7 +1,10 @@
 package com.cod.mvc;
 
 import com.cod.mvc.controller.Controller;
+import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
+
+import javax.swing.*;
 
 /**
  * Clase principal
@@ -27,5 +30,15 @@ public class App {
         // otro cambio de velocidad
         // sobrepasando la velocidad máxima
         miController.cambiarVelocidad("JFK 9876", 140);
+
+        // Buscar un coche por su matrícula
+        String matricula = JOptionPane.showInputDialog("Introduce la matricula del coche a buscar");
+        Coche cocheEncontrado = miController.buscarCoche(matricula);
+        // Mostrar el coche encontrado con sus datos, si no se ha encontrado mostrar un mensaje
+        if (cocheEncontrado != null) {
+            System.out.println("Coche encontrado: " + cocheEncontrado.modelo + " " + cocheEncontrado.matricula + " " + cocheEncontrado.velocidad);
+        } else {
+            System.out.println("Coche no encontrado");
+        }
     }
 }
