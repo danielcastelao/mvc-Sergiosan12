@@ -4,7 +4,6 @@ import com.cod.mvc.controller.Observer;
 
 import java.util.ArrayList;
 
-
 /**
  * Vamos a usar la interface Observable
  * El Model será el encargado de notificar a los observadores
@@ -15,6 +14,17 @@ public class Model implements Observable {
 
     // para los observadores
     private static final ArrayList<Observer> observers = new ArrayList<Observer>();
+
+    // creo una instancia única de la clase
+    private static final Model instance = new Model();
+
+    // Constructor privado para evitar instanciación externa
+    private Model() {}
+
+    // Método para obtener la única instancia de la clase
+    public static Model getInstance() {
+        return instance;
+    }
 
     @Override
     public void addObserver(Observer observer) {
@@ -31,12 +41,11 @@ public class Model implements Observable {
      * @param coche
      */
     @Override
-    public void notifyObservers(Coche coche,Model model) {
+    public void notifyObservers(Coche coche, Model model) {
         for (Observer observer : observers) {
-            observer.update(coche,model);
+            observer.update(coche, model);
         }
     }
-
 
     /**
      * Crea un coche y lo mete en el parking
@@ -53,7 +62,7 @@ public class Model implements Observable {
     /**
      * Busca coche segun matricula
      * @param matricula a buscar
-     * @return chche o null si no existe
+     * @return coche o null si no existe
      */
     public Coche getCoche(String matricula){
         Coche aux = null;
@@ -78,8 +87,7 @@ public class Model implements Observable {
         getCoche(matricula).velocidad = v;
 
         // lo notificamos a todos los observadores
-        notifyObservers(getCoche(matricula),this);
-
+        notifyObservers(getCoche(matricula), this);
     }
 
     /**
