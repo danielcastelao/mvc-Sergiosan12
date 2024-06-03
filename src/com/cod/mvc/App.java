@@ -25,5 +25,8 @@ public class App {
         //subimos la velocidad
         miController.subirVelocidad("SPQ 5432",20);
 
+        //bajamos la velocidad
+        miController.bajarVelocidad("SPQ 5432",10);
+
     }
 }

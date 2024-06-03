@@ -57,5 +57,14 @@ public class ControllerTest {
         assertEquals(50, coche.getVelocidad());
     }
 
+    @Test
+    public void testBajarVelocidad() {
+        controller.crearCoche("TestCar", "1234");
+        controller.subirVelocidad("1234", 50);
+        controller.bajarVelocidad("1234", 20);
+        Coche coche = model.getCoche("1234");
+        assertEquals(30, coche.getVelocidad());
+    }
+
 
 }
