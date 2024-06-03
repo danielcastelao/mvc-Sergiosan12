@@ -7,6 +7,7 @@ public class Coche {
     public String matricula;
     public String modelo;
     public Integer velocidad;
+    public Integer velocidadAnterior;
 
     /**
      *
@@ -41,5 +42,21 @@ public class Coche {
 
     public void setVelocidad(Integer velocidad) {
         this.velocidad = velocidad;
+    }
+
+    /**
+     * Devuelve la velocidad anterior del coche.
+     * @return velocidad anterior del coche.
+     */
+    public Integer getVelocidadAnterior() {
+        return velocidadAnterior;
+    }
+
+    /**
+     * Establece la velocidad anterior del coche.
+     * @param velocidadAnterior la velocidad anterior a establecer.
+     */
+    public void setVelocidadAnterior(Integer velocidadAnterior) {
+        this.velocidadAnterior = velocidadAnterior;
     }
 }
