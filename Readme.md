@@ -29,6 +29,7 @@ classDiagram
     class Controller{
         +main()
         +subirVelocidad(String, Integer): void
+        +baajarVelocidad(String, Integer): void
     }
     class View {+muestraVelocidad(String, Integer)}
     class Model {
@@ -37,6 +38,7 @@ classDiagram
         +getCoche(String)
         +subirVelocidad(String, Integer)
         +getVelocidad(String)
+        +bajarVelocidad(String, Integer)
     }
     class ObserverVelocidad {
         +update(Coche, Model): void
@@ -84,6 +86,13 @@ sequenceDiagram
     Model-->>Controller: Coche
     deactivate Model
     Controller->>Model: subirVelocidad("BXK 1234", 50)
+    activate Model
+    Model-->>Controller: void
+    Model->>ObserverVelocidad: update(Coche, Model)
+    activate ObserverVelocidad
+    ObserverVelocidad-->>Model: void
+    deactivate ObserverVelocidad
+    Controller->>Model: bajarVelocidad("BXK 1234", 20)
     activate Model
     Model-->>Controller: void
     Model->>ObserverVelocidad: update(Coche, Model)

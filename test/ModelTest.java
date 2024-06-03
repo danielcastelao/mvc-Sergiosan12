@@ -53,4 +53,13 @@ class ModelTest {
         Coche coche = model.getCoche("1234");
         assertEquals(50, coche.getVelocidad());
     }
+
+    @Test
+    public void bajarVelocidad() {
+        model.crearCoche("CochePrueba", "1234");
+        model.subirVelocidad("1234", 50);
+        model.bajarVelocidad("1234", 20);
+        Coche coche = model.getCoche("1234");
+        assertEquals(30, coche.getVelocidad());
+    }
 }
