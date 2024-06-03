@@ -32,24 +32,29 @@ public class ControllerTest {
     @Test
     public void cambiarVelocidadCoche() {
         controller.crearCoche("TestCar", "1234");
-        controller.cambiarVelocidad("1234", 50);
+        controller.subirVelocidad("1234", 50);
         Coche coche = model.getCoche("1234");
-        assertEquals(50, coche.velocidad);
+        assertEquals(50, coche.getVelocidad());
     }
 
     // test cambiar velocidad y supera el limite de 120
     @Test
     public void changesCarSpeedAndExceedsLimit() {
-
-        // Redirigir la salida estándar
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
         controller.crearCoche("TestCocheRapido", "BX5555");
-        controller.cambiarVelocidad("BX5555", 150);
+        controller.subirVelocidad("BX5555", 150);
         Coche coche = model.getCoche("BX5555");
         assertEquals(120, coche.getVelocidad()); // Va bajando la velocidad hasta los 120
+    }
 
+    @Test
+    public void testSubirVelocidad() {
+        controller.crearCoche("TestCar", "1234");
+        controller.subirVelocidad("1234", 50);
+        Coche coche = model.getCoche("1234");
+        assertEquals(50, coche.getVelocidad());
     }
 
 

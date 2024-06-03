@@ -22,21 +22,29 @@ classDiagram
         String: matricula
         String: modelo
         Integer: velocidad
+        Integer: velocidadAnterior
+        +getVelocidadAnterior(): Integer
+        +setVelocidadAnterior(Integer): void
     }
-      class Controller{
-          +main()
-      }
-      class View {+muestraVelocidad(String, Integer)}
-      class Model {
-          ArrayList~Coche~: parking
-          +crearCoche(String, String, String)
-          +getCoche(String)
-          +cambiarVelocidad(String, Integer)
-          +getVelocidad(String)
-      }
+    class Controller{
+        +main()
+        +subirVelocidad(String, Integer): void
+    }
+    class View {+muestraVelocidad(String, Integer)}
+    class Model {
+        ArrayList~Coche~: parking
+        +crearCoche(String, String, String)
+        +getCoche(String)
+        +subirVelocidad(String, Integer)
+        +getVelocidad(String)
+    }
+    class ObserverVelocidad {
+        +update(Coche, Model): void
+    }
     Controller "1" *-- "1" Model : association
     Controller "1" *-- "1" View : association
     Model "1" *-- "1..n" Coche : association
+    Model "1" *-- "1..n" ObserverVelocidad : association
       
 ```
 
@@ -70,9 +78,18 @@ sequenceDiagram
     participant Model
     participant Controller
     participant View
+    participant ObserverVelocidad
     Controller->>Model: crearCoche("Mercedes", "BXK 1234")
     activate Model
     Model-->>Controller: Coche
+    deactivate Model
+    Controller->>Model: subirVelocidad("BXK 1234", 50)
+    activate Model
+    Model-->>Controller: void
+    Model->>ObserverVelocidad: update(Coche, Model)
+    activate ObserverVelocidad
+    ObserverVelocidad-->>Model: void
+    deactivate ObserverVelocidad
     deactivate Model
     Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
     activate View

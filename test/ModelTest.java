@@ -45,4 +45,12 @@ class ModelTest {
         Integer velocidad = model.getVelocidad("1234ABC");
         assertEquals(0, velocidad);
     }
+
+    @Test
+    public void subirVelocidad() {
+        model.crearCoche("CochePrueba", "1234");
+        model.subirVelocidad("1234", 50);
+        Coche coche = model.getCoche("1234");
+        assertEquals(50, coche.getVelocidad());
+    }
 }

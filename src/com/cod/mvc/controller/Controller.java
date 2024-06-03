@@ -42,6 +42,14 @@ public class Controller{
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 
+    /**
+     * Aumenta la velocidad del coche
+     * @param matricula del coche
+     * @param velocidad que aumenta
+     */
+    public void subirVelocidad(String matricula, Integer velocidad){
+        miModel.subirVelocidad(matricula,velocidad);
+    }
 
 
 

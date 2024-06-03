@@ -6,17 +6,17 @@ import com.cod.mvc.view.View;
 
 public class ObserverVelocidad implements Observer {
     /**
-     * Este método es llamado siempre que hay un cambio
-     * El observable cuando hace el notifyObservers
-     * 'dispara' todos los update de los Observers
-     * @param arg el argumento pasado por el observable, el coche actualizado
+     * Actualiza el observador con el coche y el modelo proporcionados.
+     * Imprime un mensaje indicando si la velocidad del coche ha aumentado.
+     * @param arg el coche que ha cambiado su velocidad.
+     * @param model el modelo que contiene al coche.
      */
     @Override
     public void update(Coche arg, Model model) {
-        System.out.println("[ObserverVelocidad] Se ha cambiado la velocidad: " + arg.velocidad.toString() + "km/hr");
+        if (arg.getVelocidad() > arg.getVelocidadAnterior()) {
+            System.out.println("[ObserverVelocidad] Se ha aumentado la velocidad del coche "+arg.getMatricula()+ " en: " + (arg.getVelocidad() - arg.getVelocidadAnterior()) + "km/hr");
+        }
 
-        // le comunicamos a la vista que muestre la velocidad
-        View.muestraVelocidad(arg.matricula, arg.velocidad);
-
+        View.muestraVelocidad(arg.getMatricula(), arg.getVelocidad());
     }
 }
